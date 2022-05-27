@@ -1,0 +1,16 @@
+@keyframes sprite {
+    to {
+        background-position: 0 -2400px;
+    }
+}
+
+.cat {
+    height: 200px;
+    width: 400px;
+    background: url("../image/cat_walk_cycle_sprite.png");
+    /*animation: sprite 3s steps(12) infinite;*/
+    animation-name: sprite;
+    animation-duration: 2s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+}
