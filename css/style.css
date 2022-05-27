@@ -19,8 +19,3 @@ body {
     position: relative;
     left: 800px;
 }
-
-#stopped {
-    visibility: hidden;
-    font-size: 2em;
-}
