@@ -1,10 +1,23 @@
+body {
+    overflow: hidden;
+}
+
+#way {
+    height: 200px;
+    width: 800px;
+    border: thin solid black;
+    overflow: hidden;
+}
+
 #cat {
     height: 200px;
     width: 400px;
     /* image from https://www.pngwing.com/en/free-png-isude */
     background: url("../image/cat_walk_cycle_sprite.png");
     background-position: 0 0;
-    /*border: thin solid gray;*/
+    position: relative;
+    left: 800px;
+    /*border: thin solid red;*/
 }
 
 #stopped {
