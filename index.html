@@ -3,16 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat animation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<div id="cat_path">
-    <div id="cat"
-         onmouseover="isPaused = true"
-         onmouseout="isPaused = false"
-         onclick="catClick()"
-    ></div>
+<div class="container">
+    <div id="cat_path">
+        <div id="cat"
+             onmouseover="isPaused = true"
+             onmouseout="isPaused = false"
+             onclick="catClick()"
+        ></div>
+    </div>
+
+    <div class="player text-center">
+        <button type="button" id="button_fbw" class="btn" onclick='buttonRewindPress()'>
+            <i class="fa fa-fast-backward"></i>
+        </button>
+
+        <button type="button" id="button_bw" class="btn" onclick='buttonBackPress()'>
+            <i class="fa fa-backward"></i>
+        </button>
+
+        <button type="button" id="button_play" class="btn" onclick='buttonPlayPress()'>
+            <i class="fa fa-pause"></i>
+        </button>
+
+        <button type="button" id="button_stop" class="btn" onclick='buttonStopPress()'>
+            <i class="fa fa-stop"></i>
+        </button>
+
+        <button type="button" id="button_fw" class="btn" onclick='buttonForwardPress()'>
+            <i class="fa fa-forward"></i>
+        </button>
+
+        <button type="button" id="button_ffw" class="btn" onclick='buttonFastforwardPress()'>
+            <i class="fa fa-fast-forward"></i>
+        </button>
+    </div>
 </div>
 <script src="js/cat.js" type="text/javascript"></script>
+<script src="js/button.js" type="text/javascript"></script>
 </body>
 </html>
