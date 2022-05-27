@@ -1,5 +1,7 @@
-.cat {
-    height: 2400px;
+#cat {
+    height: 200px;
     width: 400px;
+    /* image from https://www.pngwing.com/en/free-png-nfyld */
     background: url("../image/cat_walk_cycle_sprite.png");
+    background-position: 0 0;
 }
