@@ -4,4 +4,10 @@
     /* image from https://www.pngwing.com/en/free-png-nfyld */
     background: url("../image/cat_walk_cycle_sprite.png");
     background-position: 0 0;
+    /*border: thin solid gray;*/
+}
+
+#stopped {
+    visibility: hidden;
+    font-size: 2em;
 }
