@@ -1,51 +1,77 @@
-// Source: https://levelup.gitconnected.com/three-ways-to-animate-sprite-sheet-image-a5c000f0c579
-
-var animationInterval;
+//spriteSheet definition
 var spriteSheet = document.getElementById("cat");
-const frames = 12;
-const cycleTime = 1.5; // time for full cycle
-var lengthOfSpriteSheet = 2400;
-const lengthOfEachSprite = lengthOfSpriteSheet / frames;
-var isPaused = false;
-const speed = frames / cycleTime; // fps
-const delay = 1 / speed * 1000; //in millisecond(ms)
+const sprites = 12,
+    spriteSheetHeight = 2400,
+    spriteHeight = spriteSheetHeight / sprites,
+    spriteStep = spriteHeight, //difference between two sprites
+    spriteWidth = 400;
 
-const wayLength = 350;
-const wayStep = wayLength / frames;
-const spriteWidth = 400;
-const wayPositionStart = parseInt(getComputedStyle(spriteSheet).left, 10)
+//path definition
+const pathLength = 350,
+    pathStepLength = pathLength / sprites,
+    pathStartPosition = parseInt(getComputedStyle(spriteSheet).left, 10)
+
+//time control
+var animationInterval;
+var isPaused = false;
+var isStopped = false;
+const cycleDuration = 1.5, //time for full cycle
+    delay = cycleDuration / sprites * 1000; //in millisecond(ms)
+
+//start position
+var position = spriteHeight; //start position for the image
+var wayPosition = pathStartPosition;
+
+function stepAnimation(direction = 'left') {
+    spriteSheet.style.backgroundPosition = `0px -${position}px`;
+    spriteSheet.style.left = `${wayPosition}px`;
+
+    if (position < spriteSheetHeight) {
+        //increment the position by the width of each sprite each time
+        position = position + spriteStep;
+    } else {
+        //reset the position to show first sprite after the last one
+        position = spriteHeight;
+    }
+
+    if (wayPosition > spriteWidth * -1) {
+        wayPosition = wayPosition - pathStepLength;
+    } else {
+        wayPosition = pathStartPosition;
+    }
+}
+
+function startAnimation() {
+    animationInterval = setInterval(() => {
+        if (!isPaused) {
+            stepAnimation()
+        }
+    }, delay);
+}
 
 function stopAnimation() {
     clearInterval(animationInterval);
     document.getElementById("stopped").style.visibility = 'visible';
 }
 
-function startAnimation() {
-    var position = lengthOfEachSprite; //start position for the image
-    const diff = lengthOfEachSprite; //difference between two sprites
+function catClick() {
+    if (isStopped) {
+        startAnimation();
+        isStopped = false;
+    } else {
+        stopAnimation();
+        isStopped = true;
+    }
+}
 
-    var wayPosition = wayPositionStart;
-
-    animationInterval = setInterval(() => {
-        if (!isPaused) {
-            spriteSheet.style.backgroundPosition = `0px -${position}px`;
-            spriteSheet.style.left = `${wayPosition}px`;
-
-            if (position < lengthOfSpriteSheet) {
-                position = position + diff;
-            } else {
-                //increment the position by the width of each sprite each time
-                position = lengthOfEachSprite;
-            }
-            //reset the position to show first sprite after the last one
-
-            if (wayPosition > spriteWidth * -1) {
-                wayPosition = wayPosition - wayStep;
-            } else {
-                wayPosition = wayPositionStart;
-            }
-        }
-    }, delay);
+document.onkeydown = function (e) {
+    console.log(e.code)
+    if (e.code === 'Space') {
+        isPaused = !isPaused
+    } else if (e.code === 'ArrowLeft') {
+        isPaused = true
+        stepAnimation()
+    }
 }
 
 //Start animation

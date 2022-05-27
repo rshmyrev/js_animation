@@ -2,11 +2,12 @@ body {
     overflow: hidden;
 }
 
-#way {
+#cat_path {
     height: 200px;
     width: 800px;
     border: thin solid black;
     overflow: hidden;
+    background-color: lightblue;
 }
 
 #cat {
@@ -17,7 +18,6 @@ body {
     background-position: 0 0;
     position: relative;
     left: 800px;
-    /*border: thin solid red;*/
 }
 
 #stopped {
