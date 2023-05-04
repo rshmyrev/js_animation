@@ -1,39 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
-}
-
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .container {
-    margin: 5px;
-    padding: 0;
+  margin: 5px;
 }
 
 #game_field {
-    width: 800px;
-    height: 800px;
-    border: thin solid black;
-    background-color: lightgoldenrodyellow;
+  width: 800px;
+  height: 800px;
+  border: 1px solid black;
+  background-color: lightgoldenrodyellow;
 }
 
 #man {
-    height: 159px;
-    width: 94px;
-    /* image from https://www.pngwing.com/en/free-png-zwnbo */
-    background: url("../image/man_walking_sprite.png");
-    /*background-position: 8% 0;*/
-    position: relative;
-    left: 50%;
-    top: 50%;
-    /*border: thin solid red;*/
-    margin: 0;
-    padding: 0;
+  height: 159px;
+  width: 94px;
+  background: url("../image/man_walking_sprite.png");
+  position: relative;
+  left: 50%;
+  top: 50%;
 }
 
 .player {
-    margin: 10px 0;
+  margin-top: 10px;
 }
